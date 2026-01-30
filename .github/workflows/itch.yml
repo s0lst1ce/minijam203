@@ -1,0 +1,41 @@
+name: Publish to Itch.io
+
+on:
+  push:
+    branches: ["master"]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout source code
+        uses: actions/checkout@v3
+
+      - name: Install Butler
+        uses: buildalon/setup-butler@v1
+        with:
+          api-key: ${{ secrets.BUTLER_TOKEN}}
+
+      - name: Godot Export
+        id: export
+        uses: firebelley/godot-export@v7.0.0
+        with:
+          godot_executable_download_url: https://github.com/godotengine/godot/releases/download/4.6-stable/Godot_v4.6-stable_linux.x86_64.zip
+          godot_export_templates_download_url: https://github.com/godotengine/godot/releases/download/4.6-stable/Godot_v4.6-stable_export_templates.tpz
+          relative_project_path: ./
+          archive_output: false
+          # Use the GitHub Actions workflow cache to cache the Godot export templates and Godot executable. 
+          # Helps speed up builds by not having to download them every time.
+          cache: true
+        env:
+          GITHUB_TOKEN: ${{secrets.GH_TOKEN}}
+
+      # - name: Rename entrypoint
+      #   run: mv ${{steps.export.outputs.build_directory}}/kidscancode-web/kidscancode-web.html ${{steps.export.outputs.build_directory}}/kidscancode-web/index.html
+
+
+      - name: Publish to Itch
+        run: butler push ${{steps.export.outputs.build_directory}} s0lst1ce/minijam-203:html
+        env:
+          BUTLER_API_KEY: ${{secrets.BUTLER_TOKEN}}
+
