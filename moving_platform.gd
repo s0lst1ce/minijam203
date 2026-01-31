@@ -1,6 +1,6 @@
 extends Node2D
 
-@export var offset = Vector2(300, 0)
+@export var offset = Vector2(0, -200)
 @export var duration = 5.0
 @onready var initial_position = position
 

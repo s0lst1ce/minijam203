@@ -34,6 +34,7 @@ shape = SubResource("RectangleShape2D_t218m")
 
 [node name="MovingPlatform" type="Node2D" parent="." unique_id=734034195]
 script = ExtResource("2_hn12h")
+offset = Vector2(300, 0)
 
 [node name="AnimatableBody2D" type="AnimatableBody2D" parent="MovingPlatform" unique_id=1020315425]
 collision_layer = 96
