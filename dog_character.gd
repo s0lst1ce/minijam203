@@ -48,7 +48,6 @@ func _physics_process(delta: float) -> void:
 func _process(_delta: float) -> void:
 	# TODO: is there a method to test if one of many action is pressed ?
 	if Input.is_action_just_pressed("set_to_mode0") or Input.is_action_just_pressed("set_to_mode1") or Input.is_action_just_pressed("set_to_mode2"):
-		print(current_mode)
 		set_collision_layer_value(mode_to_collision(current_mode), false)
 		set_collision_mask_value(mode_to_collision(current_mode), false)
 
@@ -59,7 +58,6 @@ func _process(_delta: float) -> void:
 		else:
 			current_mode = 2
 			
-		print(current_mode)
 
 		set_collision_layer_value(mode_to_collision(current_mode), true)
 		set_collision_mask_value(mode_to_collision(current_mode), true)
