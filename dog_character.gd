@@ -21,7 +21,7 @@ func collision_to_mode(col: int) -> int:
 
 func _physics_process(delta: float) -> void:
 	#NOTE: float because get_axis may be different than one if we use an analog input (i.e.: joystick)
-	var input_way: float = Input.get_axis("left", "right") # which way we point = look to
+	var input_way: float = Input.get_axis("left", "right") # which way we point/look to
 	var walk_force: float  = WALK_POWER * input_way
 	# as such checking if the player wants to move is not simply comparing to +-1
 	if abs(input_way) < 0.2:
