@@ -3,6 +3,8 @@ extends CharacterBody2D
 @onready var screensize = get_viewport_rect().size
 @onready var gravity = float(ProjectSettings.get_setting("physics/2d/default_gravity"))
 
+@onready var animated_sprite = $AnimatedSprite2D
+
 const JUMP_SPEED: float = 300.0
 const WALK_POWER: float = 1500.0
 const MAX_HSPEED: float = 500.0
@@ -61,3 +63,9 @@ func _process(_delta: float) -> void:
 
 		set_collision_layer_value(mode_to_collision(current_mode), true)
 		set_collision_mask_value(mode_to_collision(current_mode), true)
+	
+	if velocity == Vector2.ZERO:
+		animated_sprite.play("idle")
+	else:
+		animated_sprite.flip_h = velocity.x < 0
+		animated_sprite.play("walk")
