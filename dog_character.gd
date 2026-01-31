@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+@onready var screensize = get_viewport_rect().size
+
 const SPEED: int = 400
 
 var current_mode: int = 0
@@ -14,6 +16,9 @@ func refresh_velocity_from_input():
 func _physics_process(delta: float) -> void:
 	refresh_velocity_from_input()
 	move_and_slide()
+	
+	#making sure we stay in-bounds
+	position = position.clamp(Vector2(0, 0), screensize)
 
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("cycle_mode"):
