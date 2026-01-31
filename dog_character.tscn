@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://1ofwps6u2jy5"]
 
 [ext_resource type="Script" uid="uid://bnvaop2n34a5g" path="res://dog_character.gd" id="1_5g6is"]
-[ext_resource type="Texture2D" uid="uid://cm8i5aryc6bvb" path="res://assets/all.png" id="2_5g6is"]
+[ext_resource type="Texture2D" uid="uid://dydx7iif413k5" path="res://icon.svg" id="2_5g6is"]
 
 [node name="DogCharacter" type="CharacterBody2D" unique_id=422305244]
 collision_layer = 32
