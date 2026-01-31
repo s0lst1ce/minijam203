@@ -55,20 +55,13 @@ func _physics_process(delta: float) -> void:
 		if c.get_collider() is RigidBody2D:
 			var body: RigidBody2D = c.get_collider()
 			# we only want to move the obstacles of the same color as the dog
-			print(mode_to_collision(current_mode), body.get_collision_layer_value(mode_to_collision(current_mode)))
 			if body.get_collision_layer_value(mode_to_collision(current_mode)):
 				# -c because we move the object in the same way as the player. Not the normal which faces the player
 				if body.linear_velocity.length() < MAX_HSPEED:
 					body.apply_central_force(-c.get_normal()*800)
 					pushed.append(body)
-	
-				#body.apply_central_force(-c.get_normal() * 1000)
-				#body.linear_velocity = -c.get_normal() * 1000
-				#body.linear_velocity.clamp(Vector2(0, 0), Vector2(MAX_HSPEED, MAX_HSPEED))
-			# we moved it so now we shouldn't slide
-			# TODO: should we just never slide ?
-			#velocity.x=0
-	
+
+	# removing force if we're not pushing anymore
 	for body in last_pushed:
 		if !pushed.has(body):
 			body.linear_velocity.x = 0
@@ -76,6 +69,7 @@ func _physics_process(delta: float) -> void:
 
 	#making sure we stay in-bounds
 	position = position.clamp(Vector2(0, 0), screensize)
+
 
 func _process(_delta: float) -> void:
 	# TODO: is there a method to test if one of many action is pressed ?
