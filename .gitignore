@@ -1,3 +1,9 @@
 # Godot 4+ specific ignores
 .godot/
 /android/
+
+# Dropbox
+Dropbox/rules.dropboxignore
+Dropbox/.dropbox
+Dropbox/.dropbox.cache
+Dropbox/**/desktop.ini
