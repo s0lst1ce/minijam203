@@ -6,7 +6,7 @@ extends CharacterBody2D
 @onready var animated_sprite = $AnimatedSprite2D
 
 const JUMP_SPEED: float = 300.0
-const WALK_POWER: float = 1500.0
+const WALK_POWER: float = 400.0
 const MAX_HSPEED: float = 800.0
 const FRICTION: float = 3000.0
 
