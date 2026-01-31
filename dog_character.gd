@@ -45,7 +45,7 @@ func _physics_process(delta: float) -> void:
 	#making sure we stay in-bounds
 	position = position.clamp(Vector2(0, 0), screensize)
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	# TODO: is there a method to test if one of many action is pressed ?
 	if Input.is_action_just_pressed("set_to_mode0") or Input.is_action_just_pressed("set_to_mode1") or Input.is_action_just_pressed("set_to_mode2"):
 		print(current_mode)
