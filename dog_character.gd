@@ -3,8 +3,10 @@ extends CharacterBody2D
 @onready var screensize = get_viewport_rect().size
 @onready var gravity = float(ProjectSettings.get_setting("physics/2d/default_gravity"))
 
+@onready var animated_sprite = $AnimatedSprite2D
+
 const JUMP_SPEED: float = 300.0
-const WALK_POWER: float = 1500.0
+const WALK_POWER: float = 400.0
 const MAX_HSPEED: float = 800.0
 const FRICTION: float = 3000.0
 
@@ -22,7 +24,7 @@ func collision_to_mode(col: int) -> int:
 
 func _physics_process(delta: float) -> void:
 	#NOTE: float because get_axis may be different than one if we use an analog input (i.e.: joystick)
-	var input_way: float = Input.get_axis("left", "right") # which way we point = look to
+	var input_way: float = Input.get_axis("left", "right") # which way we point/look to
 	var walk_force: float  = WALK_POWER * input_way
 	# as such checking if the player wants to move is not simply comparing to +-1
 	if abs(input_way) < 0.2:
@@ -93,3 +95,9 @@ func _process(_delta: float) -> void:
 
 		set_collision_layer_value(mode_to_collision(current_mode), true)
 		set_collision_mask_value(mode_to_collision(current_mode), true)
+	
+	if velocity == Vector2.ZERO:
+		animated_sprite.play("idle")
+	else:
+		animated_sprite.flip_h = velocity.x < 0
+		animated_sprite.play("walk")
