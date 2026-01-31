@@ -10,7 +10,7 @@ size = Vector2(228, 13)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rka8t"]
 size = Vector2(149.5, 24.25)
 
-[node name="Node2D" type="Node2D" unique_id=1611830715]
+[node name="Level 1" type="Node2D" unique_id=1611830715]
 
 [node name="DogCharacter" parent="." unique_id=422305244 instance=ExtResource("1_3hls8")]
 position = Vector2(70, 314)
