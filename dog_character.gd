@@ -5,11 +5,12 @@ extends CharacterBody2D
 
 const JUMP_SPEED: float = 300.0
 const WALK_POWER: float = 1500.0
-const MAX_HSPEED: float = 500.0
-const FRICTION: float = 1300.0
+const MAX_HSPEED: float = 800.0
+const FRICTION: float = 3000.0
 
 # HACK: make this a global so it can be shared across scenes
 var current_mode: int = 0
+var last_pushed = []
 
 func mode_to_collision(mode: int) -> int:
 	assert(mode <=2 and mode >=0)
@@ -28,6 +29,9 @@ func _physics_process(delta: float) -> void:
 		# friction -> the player is slowed
 		velocity.x = move_toward(velocity.x, 0, FRICTION * delta)
 	else:
+		#if we're changing directions do so immediately, we don't care about inertia
+		if velocity.x * input_way< 0:
+			velocity.x=0
 		velocity.x += walk_force * delta
 	
 	#we make sure the player can't move too fast (think nominal free-fall velocity, relatetd to friction)
@@ -42,12 +46,39 @@ func _physics_process(delta: float) -> void:
 	if is_on_floor() and Input.is_action_just_pressed("jump"):
 		velocity.y -= JUMP_SPEED
 	
+	# moving obstacles
+	var pushed = []
+	for i in get_slide_collision_count():
+		var c = get_slide_collision(i)
+		if c.get_collider() is RigidBody2D:
+			var body: RigidBody2D = c.get_collider()
+			# we only want to move the obstacles of the same color as the dog
+			print(mode_to_collision(current_mode), body.get_collision_layer_value(mode_to_collision(current_mode)))
+			if body.get_collision_layer_value(mode_to_collision(current_mode)):
+				# -c because we move the object in the same way as the player. Not the normal which faces the player
+				if body.linear_velocity.length() < MAX_HSPEED:
+					body.apply_central_force(-c.get_normal()*800)
+					pushed.append(body)
+	
+				#body.apply_central_force(-c.get_normal() * 1000)
+				#body.linear_velocity = -c.get_normal() * 1000
+				#body.linear_velocity.clamp(Vector2(0, 0), Vector2(MAX_HSPEED, MAX_HSPEED))
+			# we moved it so now we shouldn't slide
+			# TODO: should we just never slide ?
+			#velocity.x=0
+	
+	for body in last_pushed:
+		if !pushed.has(body):
+			body.linear_velocity.x = 0
+	last_pushed = pushed
+
 	#making sure we stay in-bounds
 	position = position.clamp(Vector2(0, 0), screensize)
 
 func _process(_delta: float) -> void:
 	# TODO: is there a method to test if one of many action is pressed ?
 	if Input.is_action_just_pressed("set_to_mode0") or Input.is_action_just_pressed("set_to_mode1") or Input.is_action_just_pressed("set_to_mode2"):
+		#TODO: check if the switch is allowed
 		set_collision_layer_value(mode_to_collision(current_mode), false)
 		set_collision_mask_value(mode_to_collision(current_mode), false)
 
@@ -57,7 +88,8 @@ func _process(_delta: float) -> void:
 			current_mode = 1
 		else:
 			current_mode = 2
-			
+		print("new mode ", current_mode)
+
 
 		set_collision_layer_value(mode_to_collision(current_mode), true)
 		set_collision_mask_value(mode_to_collision(current_mode), true)

@@ -1,0 +1,68 @@
+[gd_scene format=3 uid="uid://cy0cfmrjp3r58"]
+
+[ext_resource type="PackedScene" uid="uid://1ofwps6u2jy5" path="res://dog_character.tscn" id="1_jg0dc"]
+[ext_resource type="Texture2D" uid="uid://dydx7iif413k5" path="res://icon.svg" id="2_nmjpi"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t218m"]
+resource_local_to_scene = true
+size = Vector2(760, 13)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jg0dc"]
+size = Vector2(265, 13)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nmjpi"]
+size = Vector2(101, 79)
+
+[node name="Level 2" type="Node2D" unique_id=221370902]
+
+[node name="DogCharacter" parent="." unique_id=422305244 instance=ExtResource("1_jg0dc")]
+position = Vector2(57, 279)
+collision_layer = 16
+collision_mask = 16
+
+[node name="Floor" type="StaticBody2D" parent="." unique_id=1750904835]
+position = Vector2(380, 319)
+collision_layer = 112
+collision_mask = 112
+
+[node name="ColorRect" type="ColorRect" parent="Floor" unique_id=1336812584]
+offset_left = -380.0
+offset_top = -6.0
+offset_right = 380.0
+offset_bottom = 7.0
+color = Color(0.351451, 0.9999997, 0.8610747, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor" unique_id=801102118]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_t218m")
+
+[node name="Platform" type="StaticBody2D" parent="." unique_id=1809337570]
+position = Vector2(565, 155)
+collision_layer = 16
+collision_mask = 16
+
+[node name="ColorRect" type="ColorRect" parent="Platform" unique_id=1309687905]
+offset_left = -132.0
+offset_top = -6.0
+offset_right = 133.0
+offset_bottom = 7.0
+color = Color(0.351451, 0.9999997, 0.8610747, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform" unique_id=449407469]
+position = Vector2(0.5, 0.5)
+shape = SubResource("RectangleShape2D_jg0dc")
+
+[node name="StepLadder" type="RigidBody2D" parent="." unique_id=717578546]
+position = Vector2(517, 267)
+collision_layer = 96
+collision_mask = 96
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StepLadder" unique_id=1475686232]
+position = Vector2(-0.5, 6.5)
+shape = SubResource("RectangleShape2D_nmjpi")
+
+[node name="Sprite2D" type="Sprite2D" parent="StepLadder" unique_id=394345799]
+position = Vector2(0, 6.0000014)
+scale = Vector2(0.78125, 0.625)
+texture = ExtResource("2_nmjpi")
