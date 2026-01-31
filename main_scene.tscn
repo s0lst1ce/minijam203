@@ -10,7 +10,6 @@ size = Vector2(83, 26)
 
 [node name="DogCharacter" parent="." unique_id=422305244 instance=ExtResource("1_0f027")]
 position = Vector2(431.00006, 828)
-scale = Vector2(7, 7)
 collision_layer = 16
 collision_mask = 16
 
