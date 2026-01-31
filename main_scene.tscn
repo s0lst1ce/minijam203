@@ -9,7 +9,8 @@ size = Vector2(83, 26)
 [node name="MainScene" type="Node2D" unique_id=1221224983]
 
 [node name="DogCharacter" parent="." unique_id=422305244 instance=ExtResource("1_0f027")]
-position = Vector2(573, 330)
+position = Vector2(431.00006, 828)
+scale = Vector2(7, 7)
 collision_layer = 16
 collision_mask = 16
 
@@ -18,12 +19,12 @@ collision_layer = 16
 collision_mask = 16
 
 [node name="Sprite2D" type="Sprite2D" parent="caisse5" unique_id=667147434]
-position = Vector2(884, 537)
+position = Vector2(1136.5, 305)
 scale = Vector2(0.64843726, 0.2031252)
 texture = ExtResource("2_2c62f")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="caisse5" unique_id=158040520]
-position = Vector2(884, 537)
+position = Vector2(1136.5, 305)
 shape = SubResource("RectangleShape2D_gyfs4")
 
 [node name="caisse6" type="StaticBody2D" parent="." unique_id=571015139]
@@ -41,15 +42,13 @@ position = Vector2(805.5, 477.00003)
 shape = SubResource("RectangleShape2D_gyfs4")
 
 [node name="caisse7" type="StaticBody2D" parent="." unique_id=137723256]
-position = Vector2(-200, 0)
+position = Vector2(280, 138)
 collision_layer = 64
 collision_mask = 64
 
 [node name="Sprite2D" type="Sprite2D" parent="caisse7" unique_id=1543632569]
-position = Vector2(456.5, 491)
 scale = Vector2(0.64843726, 0.2031252)
 texture = ExtResource("2_2c62f")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="caisse7" unique_id=1588673676]
-position = Vector2(456.5, 491.00003)
 shape = SubResource("RectangleShape2D_gyfs4")
