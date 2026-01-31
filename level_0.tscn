@@ -3,12 +3,13 @@
 [ext_resource type="PackedScene" uid="uid://1ofwps6u2jy5" path="res://dog_character.tscn" id="1_vfa6b"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t218m"]
-size = Vector2(761, 13)
+resource_local_to_scene = true
+size = Vector2(760, 13)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vfa6b"]
 size = Vector2(17, 86)
 
-[node name="Node2D" type="Node2D" unique_id=1611830715]
+[node name="Level 0" type="Node2D" unique_id=1611830715]
 
 [node name="DogCharacter" parent="." unique_id=422305244 instance=ExtResource("1_vfa6b")]
 position = Vector2(134, 288)
@@ -27,7 +28,7 @@ offset_bottom = 331.0
 color = Color(0.351451, 0.9999997, 0.8610747, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Floor" unique_id=1648014869]
-position = Vector2(380.5, 324.5)
+position = Vector2(381, 324.5)
 shape = SubResource("RectangleShape2D_t218m")
 
 [node name="Door" type="StaticBody2D" parent="." unique_id=980651810]
