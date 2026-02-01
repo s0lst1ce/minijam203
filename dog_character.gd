@@ -55,7 +55,7 @@ func _physics_process(delta: float) -> void:
 		if c.get_collider() is RigidBody2D:
 			var body: RigidBody2D = c.get_collider()
 			# we only want to move the obstacles of the same color as the dog
-			if body.get_collision_layer_value(mode_to_collision(current_mode)):
+			if shares_mode(body, current_mode):
 				# -c because we move the object in the same way as the player. Not the normal which faces the player
 				if body.linear_velocity.length() < MAX_HSPEED:
 					body.apply_central_force(-c.get_normal()*800)
@@ -70,26 +70,51 @@ func _physics_process(delta: float) -> void:
 	#making sure we stay in-bounds
 	position = position.clamp(Vector2(0, 0), screensize)
 
+func shares_mode(collider: CollisionObject2D, mode: int) -> bool:
+	return collider.get_collision_layer_value(mode_to_collision(mode))
+
 
 func _process(_delta: float) -> void:
 	# TODO: is there a method to test if one of many action is pressed ?
 	if Input.is_action_just_pressed("set_to_mode0") or Input.is_action_just_pressed("set_to_mode1") or Input.is_action_just_pressed("set_to_mode2"):
-		#TODO: check if the switch is allowed
-		set_collision_layer_value(mode_to_collision(current_mode), false)
-		set_collision_mask_value(mode_to_collision(current_mode), false)
 
+		var next_mode:int
 		if Input.is_action_just_pressed("set_to_mode0"):
-			current_mode = 0
+			next_mode = 0
 		elif Input.is_action_just_pressed("set_to_mode1"):
-			current_mode = 1
+			next_mode = 1
 		else:
-			current_mode = 2
-		print("new mode ", current_mode)
+			next_mode = 2
 
+		for body in $ObstacleDetector.get_overlapping_bodies():
+			#we don't want to prevent changing mode because of oneself
+			if body == self:
+				continue
+			if shares_mode(body, next_mode):
+				print(body)
+		var can_switch = true
+		for i in get_slide_collision_count():
+			var kin_collision = get_slide_collision(i)
+			#print(kin_collision.get_angle(), kin_collision.get_collider())
+			#get_angle returns the angle between Vector2.UP (meaning Vector2(0, -1)) and the normal to the collision
+			# an angle of 0 is a normal aligned with the up_direction -> this is the case when the dog is on something it collides with
+			# this is what we use to determine if it's a floor -> we can pass through floors so we don't disable switching in that case
+			# FIX: larger angle tolerance ?
+			if kin_collision.get_angle() >= 0.01 and shares_mode(kin_collision.get_collider(), next_mode):
+				# can't switch to color C if we're in an object of color C
+				can_switch = false
+				break
 
-		set_collision_layer_value(mode_to_collision(current_mode), true)
-		set_collision_mask_value(mode_to_collision(current_mode), true)
+		if can_switch:
+			#removing current layer & mask
+			set_collision_layer_value(mode_to_collision(current_mode), false)
+			set_collision_mask_value(mode_to_collision(current_mode), false)
+			current_mode = next_mode
+			#applying new one
+			set_collision_layer_value(mode_to_collision(current_mode), true)
+			set_collision_mask_value(mode_to_collision(current_mode), true)
 	
+	# animation handling
 	if velocity == Vector2.ZERO:
 		animated_sprite.play("idle")
 	else:
