@@ -1,59 +1,27 @@
 [gd_scene format=3 uid="uid://cig4shuef41cj"]
 
-[ext_resource type="PackedScene" uid="uid://1ofwps6u2jy5" path="res://dog_character.tscn" id="1_0f027"]
-[ext_resource type="Texture2D" uid="uid://dydx7iif413k5" path="res://icon.svg" id="2_2c62f"]
+[ext_resource type="Script" uid="uid://dhd0ykwjkr2lq" path="res://main_scene.gd" id="1_0f027"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_2c62f"]
-size = Vector2(83, 26)
+[node name="MainMenu" type="Node2D" unique_id=2065950688]
+script = ExtResource("1_0f027")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_d5x1h"]
-size = Vector2(83, 26)
+[node name="Backgroung" type="Sprite2D" parent="." unique_id=260421474]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_gyfs4"]
-size = Vector2(83, 26)
+[node name="UI" type="CenterContainer" parent="." unique_id=1336147610]
+offset_left = 1.0
+offset_right = 1921.0
+offset_bottom = 1080.0
 
-[node name="MainScene" type="Node2D" unique_id=1221224983]
+[node name="VBoxContainer" type="VBoxContainer" parent="UI" unique_id=1119276940]
+layout_mode = 2
 
-[node name="DogCharacter" parent="." unique_id=422305244 instance=ExtResource("1_0f027")]
-position = Vector2(431.00006, 828)
-collision_layer = 16
-collision_mask = 16
+[node name="Title" type="Label" parent="UI/VBoxContainer" unique_id=1634267426]
+layout_mode = 2
+text = "ColorBlend"
+uppercase = true
 
-[node name="caisse5" type="StaticBody2D" parent="." unique_id=1321752818]
-collision_layer = 16
-collision_mask = 16
+[node name="Start" type="Button" parent="UI/VBoxContainer" unique_id=1623021573]
+layout_mode = 2
+text = "START"
 
-[node name="Sprite2D" type="Sprite2D" parent="caisse5" unique_id=667147434]
-position = Vector2(1136.5, 305)
-scale = Vector2(0.64843726, 0.2031252)
-texture = ExtResource("2_2c62f")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="caisse5" unique_id=158040520]
-position = Vector2(1136.5, 305)
-shape = SubResource("RectangleShape2D_2c62f")
-
-[node name="caisse6" type="StaticBody2D" parent="." unique_id=571015139]
-position = Vector2(0, -300)
-collision_layer = 32
-collision_mask = 32
-
-[node name="Sprite2D" type="Sprite2D" parent="caisse6" unique_id=1576958199]
-position = Vector2(805.5, 477)
-scale = Vector2(0.64843726, 0.2031252)
-texture = ExtResource("2_2c62f")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="caisse6" unique_id=1585615014]
-position = Vector2(805.5, 477.00003)
-shape = SubResource("RectangleShape2D_d5x1h")
-
-[node name="caisse7" type="StaticBody2D" parent="." unique_id=137723256]
-position = Vector2(280, 138)
-collision_layer = 64
-collision_mask = 64
-
-[node name="Sprite2D" type="Sprite2D" parent="caisse7" unique_id=1543632569]
-scale = Vector2(0.64843726, 0.2031252)
-texture = ExtResource("2_2c62f")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="caisse7" unique_id=1588673676]
-shape = SubResource("RectangleShape2D_gyfs4")
+[connection signal="pressed" from="UI/VBoxContainer/Start" to="." method="_on_start_pressed"]
