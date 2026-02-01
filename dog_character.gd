@@ -86,23 +86,13 @@ func _process(_delta: float) -> void:
 		else:
 			next_mode = 2
 
+		var can_switch = true
 		for body in $ObstacleDetector.get_overlapping_bodies():
 			#we don't want to prevent changing mode because of oneself
 			if body == self:
 				continue
 			if shares_mode(body, next_mode):
-				print(body)
-		var can_switch = true
-		for i in get_slide_collision_count():
-			var kin_collision = get_slide_collision(i)
-			#print(kin_collision.get_angle(), kin_collision.get_collider())
-			#get_angle returns the angle between Vector2.UP (meaning Vector2(0, -1)) and the normal to the collision
-			# an angle of 0 is a normal aligned with the up_direction -> this is the case when the dog is on something it collides with
-			# this is what we use to determine if it's a floor -> we can pass through floors so we don't disable switching in that case
-			# FIX: larger angle tolerance ?
-			if kin_collision.get_angle() >= 0.01 and shares_mode(kin_collision.get_collider(), next_mode):
-				# can't switch to color C if we're in an object of color C
-				can_switch = false
+				can_switch=false
 				break
 
 		if can_switch:
