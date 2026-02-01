@@ -74,9 +74,10 @@ collision_mask = 18
 script = ExtResource("1_5g6is")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=863714472]
-zoom = Vector2(1.5, 1.5)
+zoom = Vector2(1.8, 1.8)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=750457334]
+z_index = 10
 position = Vector2(2.3841858e-07, 0)
 scale = Vector2(0.054486226, 0.054486193)
 sprite_frames = SubResource("SpriteFrames_7yuhk")

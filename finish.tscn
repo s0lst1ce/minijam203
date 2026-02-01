@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://br5trhr12qapt"]
+
+[ext_resource type="Texture2D" uid="uid://dm6wbqedan2n3" path="res://Dropbox/assets/misc/finish.png" id="1_yp4eo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v6xcw"]
+size = Vector2(46.125, 46.25)
+
+[node name="Finish" type="Area2D" unique_id=1056008474 groups=["finish"]]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1336627320]
+position = Vector2(22.9375, 23)
+shape = SubResource("RectangleShape2D_v6xcw")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=752375070]
+position = Vector2(0, 17)
+scale = Vector2(0.022460938, 0.022460938)
+texture = ExtResource("1_yp4eo")
+centered = false
