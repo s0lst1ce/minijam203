@@ -3,7 +3,6 @@
 [ext_resource type="PackedScene" uid="uid://1ofwps6u2jy5" path="res://dog_character.tscn" id="1_3hls8"]
 [ext_resource type="Script" uid="uid://cm5fy51uui7o4" path="res://level.gd" id="1_ihfcg"]
 [ext_resource type="Script" uid="uid://jsst0d8s3sxv" path="res://moving_platform.gd" id="2_hn12h"]
-[ext_resource type="PackedScene" uid="uid://cy0cfmrjp3r58" path="res://level_2.tscn" id="2_rka8t"]
 [ext_resource type="Texture2D" uid="uid://dydx7iif413k5" path="res://icon.svg" id="3_ihfcg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t218m"]
@@ -17,7 +16,7 @@ size = Vector2(82.5, 46.5)
 
 [node name="Level 1" type="Node2D" unique_id=1611830715]
 script = ExtResource("1_ihfcg")
-next_scene = ExtResource("2_rka8t")
+next_scene_path = "res://level_2.tscn"
 
 [node name="DogCharacter" parent="." unique_id=422305244 instance=ExtResource("1_3hls8")]
 position = Vector2(70, 314)
