@@ -3,10 +3,8 @@
 [ext_resource type="Script" uid="uid://cm5fy51uui7o4" path="res://level.gd" id="1_t218m"]
 [ext_resource type="PackedScene" uid="uid://1ofwps6u2jy5" path="res://dog_character.tscn" id="1_vfa6b"]
 [ext_resource type="Texture2D" uid="uid://dydx7iif413k5" path="res://icon.svg" id="2_v6xcw"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_t218m"]
-resource_local_to_scene = true
-size = Vector2(760, 13)
+[ext_resource type="Texture2D" uid="uid://bu2tvof8ajyvq" path="res://Dropbox/assets/world/environement/trashpile_go.png" id="3_smnfn"]
+[ext_resource type="PackedScene" uid="uid://dqrjwsdt0h5ae" path="res://paved_floor.tscn" id="5_nu7sl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vfa6b"]
 size = Vector2(17, 86)
@@ -24,35 +22,21 @@ next_scene_path = "res://level_1.tscn"
 scroll_scale = Vector2(0.1, 0.1)
 
 [node name="Sprite2D" type="Sprite2D" parent="Environement/Background" unique_id=63080950]
-position = Vector2(958, 538.5)
+position = Vector2(956.99994, 538.5)
 scale = Vector2(14.953125, 8.4140625)
 texture = ExtResource("2_v6xcw")
 
-[node name="Clouds" type="Parallax2D" parent="Environement" unique_id=2077730832]
-scroll_scale = Vector2(1.5, 1.5)
+[node name="TrashPile" type="Parallax2D" parent="Environement" unique_id=2077730832]
+scroll_scale = Vector2(0.6, 1)
+scroll_offset = Vector2(200, 0)
 
-[node name="Sprite2D" type="Sprite2D" parent="Environement/Clouds" unique_id=189063585]
-position = Vector2(190, 158)
-texture = ExtResource("2_v6xcw")
+[node name="Sprite2D" type="Sprite2D" parent="Environement/TrashPile" unique_id=189063585]
+position = Vector2(485.00003, 287)
+scale = Vector2(0.076416016, 0.076416016)
+texture = ExtResource("3_smnfn")
 
 [node name="DogCharacter" parent="." unique_id=422305244 instance=ExtResource("1_vfa6b")]
 position = Vector2(134, 288)
-
-[node name="Floor" type="StaticBody2D" parent="." unique_id=637017212]
-collision_layer = 112
-collision_mask = 112
-
-[node name="ColorRect" type="ColorRect" parent="Floor" unique_id=73619523]
-offset_left = 1.0
-offset_top = 318.0
-offset_right = 761.0
-offset_bottom = 331.0
-color = Color(0.351451, 0.9999997, 0.8610747, 1)
-metadata/_edit_use_anchors_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor" unique_id=1648014869]
-position = Vector2(381, 324.5)
-shape = SubResource("RectangleShape2D_t218m")
 
 [node name="Door" type="StaticBody2D" parent="." unique_id=980651810]
 collision_layer = 96
@@ -85,3 +69,18 @@ offset_top = -23.0
 offset_right = 41.0
 offset_bottom = 23.0
 metadata/_edit_use_anchors_ = true
+
+[node name="Floor" parent="." unique_id=752056718 instance=ExtResource("5_nu7sl")]
+position = Vector2(0, 315)
+
+[node name="Floor2" parent="." unique_id=68564274 instance=ExtResource("5_nu7sl")]
+position = Vector2(153, 315)
+
+[node name="Floor3" parent="." unique_id=1490579366 instance=ExtResource("5_nu7sl")]
+position = Vector2(306, 315)
+
+[node name="Floor4" parent="." unique_id=1392674405 instance=ExtResource("5_nu7sl")]
+position = Vector2(612, 315)
+
+[node name="Floor5" parent="." unique_id=857126682 instance=ExtResource("5_nu7sl")]
+position = Vector2(459, 315)
