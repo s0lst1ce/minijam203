@@ -37,24 +37,26 @@ position = Vector2(115, 368.5)
 shape = SubResource("RectangleShape2D_t218m")
 
 [node name="MovingPlatform" type="Node2D" parent="." unique_id=734034195]
+position = Vector2(547, 370)
 script = ExtResource("2_hn12h")
-offset = Vector2(300, 0)
+offset = Vector2(-200, 0)
 
 [node name="AnimatableBody2D" type="AnimatableBody2D" parent="MovingPlatform" unique_id=1020315425]
+position = Vector2(2, 0)
 collision_layer = 96
 collision_mask = 96
 
 [node name="Sprite2D" type="Sprite2D" parent="MovingPlatform/AnimatableBody2D" unique_id=920157112]
-position = Vector2(347, 373)
+position = Vector2(-0.49996948, 3.0517578e-05)
 scale = Vector2(1.1640625, 0.18750015)
 texture = ExtResource("3_ihfcg")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MovingPlatform/AnimatableBody2D" unique_id=1818431043]
-position = Vector2(347.25, 372.875)
+position = Vector2(-0.25, -0.125)
 shape = SubResource("RectangleShape2D_rka8t")
 
 [node name="MovingPlatform2" type="Node2D" parent="." unique_id=1807583889]
-position = Vector2(178, 0)
+position = Vector2(800, 369)
 script = ExtResource("2_hn12h")
 
 [node name="AnimatableBody2D" type="AnimatableBody2D" parent="MovingPlatform2" unique_id=2130968681]
@@ -62,20 +64,17 @@ collision_layer = 80
 collision_mask = 80
 
 [node name="Sprite2D" type="Sprite2D" parent="MovingPlatform2/AnimatableBody2D" unique_id=1151085009]
-position = Vector2(441.5, 373)
+position = Vector2(-0.5, 9.536745e-06)
 scale = Vector2(1.1640625, 0.18750015)
 texture = ExtResource("3_ihfcg")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MovingPlatform2/AnimatableBody2D" unique_id=1707102939]
-position = Vector2(441.75, 372.875)
+position = Vector2(-0.25003052, -0.12502098)
 shape = SubResource("RectangleShape2D_rka8t")
-
-[node name="SpawnPoint" type="Marker2D" parent="." unique_id=1562587021]
-position = Vector2(48, 335)
 
 [node name="Finish" type="Area2D" parent="." unique_id=1013722906 groups=["finish"]]
 unique_name_in_owner = true
-position = Vector2(493, 162)
+position = Vector2(805, 36)
 collision_layer = 2
 collision_mask = 0
 

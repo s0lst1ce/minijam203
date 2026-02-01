@@ -13,7 +13,7 @@ const MAX_HSPEED: float = 800.0
 const FRICTION: float = 3000.0
 
 # HACK: make this a global so it can be shared across scenes
-var current_mode: int = 0
+static var current_mode: int = 0
 var last_pushed = []
 
 func mode_to_collision(mode: int) -> int:
