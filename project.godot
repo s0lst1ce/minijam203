@@ -71,8 +71,8 @@ set_to_mode2={
 [layer_names]
 
 2d_physics/layer_2="finish"
-2d_physics/layer_5="violet"
-2d_physics/layer_6="vert"
+2d_physics/layer_5="purple"
+2d_physics/layer_6="green"
 2d_physics/layer_7="orange"
 
 [physics]
