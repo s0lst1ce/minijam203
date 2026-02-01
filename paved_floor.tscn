@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://dqrjwsdt0h5ae"]
+
+[ext_resource type="Texture2D" uid="uid://cl8keossmimvs" path="res://Dropbox/assets/world/boundaries/paved_blue.png" id="1_6aoij"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nu7sl"]
+size = Vector2(153, 29)
+
+[node name="PavedFloor" type="StaticBody2D" unique_id=752056718]
+collision_layer = 112
+collision_mask = 112
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=107520063]
+scale = Vector2(0.043609027, 0.043609023)
+texture = ExtResource("1_6aoij")
+centered = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1423673972]
+visible = false
+position = Vector2(76.5, 14.5)
+shape = SubResource("RectangleShape2D_nu7sl")
