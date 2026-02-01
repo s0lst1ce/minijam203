@@ -5,6 +5,8 @@ extends CharacterBody2D
 
 @onready var animated_sprite = $AnimatedSprite2D
 
+signal level_finish_reached
+
 const JUMP_SPEED: float = 300.0
 const WALK_POWER: float = 400.0
 const MAX_HSPEED: float = 800.0
@@ -55,20 +57,13 @@ func _physics_process(delta: float) -> void:
 		if c.get_collider() is RigidBody2D:
 			var body: RigidBody2D = c.get_collider()
 			# we only want to move the obstacles of the same color as the dog
-			print(mode_to_collision(current_mode), body.get_collision_layer_value(mode_to_collision(current_mode)))
-			if body.get_collision_layer_value(mode_to_collision(current_mode)):
+			if shares_mode(body, current_mode):
 				# -c because we move the object in the same way as the player. Not the normal which faces the player
 				if body.linear_velocity.length() < MAX_HSPEED:
 					body.apply_central_force(-c.get_normal()*800)
 					pushed.append(body)
-	
-				#body.apply_central_force(-c.get_normal() * 1000)
-				#body.linear_velocity = -c.get_normal() * 1000
-				#body.linear_velocity.clamp(Vector2(0, 0), Vector2(MAX_HSPEED, MAX_HSPEED))
-			# we moved it so now we shouldn't slide
-			# TODO: should we just never slide ?
-			#velocity.x=0
-	
+
+	# removing force if we're not pushing anymore
 	for body in last_pushed:
 		if !pushed.has(body):
 			body.linear_velocity.x = 0
@@ -77,27 +72,49 @@ func _physics_process(delta: float) -> void:
 	#making sure we stay in-bounds
 	position = position.clamp(Vector2(0, 0), screensize)
 
+func shares_mode(collider: CollisionObject2D, mode: int) -> bool:
+	return collider.get_collision_layer_value(mode_to_collision(mode))
+
 func _process(_delta: float) -> void:
 	# TODO: is there a method to test if one of many action is pressed ?
 	if Input.is_action_just_pressed("set_to_mode0") or Input.is_action_just_pressed("set_to_mode1") or Input.is_action_just_pressed("set_to_mode2"):
-		#TODO: check if the switch is allowed
-		set_collision_layer_value(mode_to_collision(current_mode), false)
-		set_collision_mask_value(mode_to_collision(current_mode), false)
 
+		var next_mode:int
 		if Input.is_action_just_pressed("set_to_mode0"):
-			current_mode = 0
+			next_mode = 0
 		elif Input.is_action_just_pressed("set_to_mode1"):
-			current_mode = 1
+			next_mode = 1
 		else:
-			current_mode = 2
-		print("new mode ", current_mode)
+			next_mode = 2
 
+		var can_switch = true
+		# worst shit I ever wrote in Godot
+		for body in $ObstacleDetector.get_overlapping_bodies():
+			#we don't want to prevent changing mode because of oneself
+			if body == self:
+				continue
+			if shares_mode(body, next_mode):
+				can_switch=false
+				break
 
-		set_collision_layer_value(mode_to_collision(current_mode), true)
-		set_collision_mask_value(mode_to_collision(current_mode), true)
-	
+		if can_switch:
+			#removing current layer & mask
+			set_collision_layer_value(mode_to_collision(current_mode), false)
+			set_collision_mask_value(mode_to_collision(current_mode), false)
+			current_mode = next_mode
+			#applying new one
+			set_collision_layer_value(mode_to_collision(current_mode), true)
+			set_collision_mask_value(mode_to_collision(current_mode), true)
+
+	# animation handling
 	if velocity == Vector2.ZERO:
 		animated_sprite.play("idle")
 	else:
 		animated_sprite.flip_h = velocity.x < 0
 		animated_sprite.play("walk")
+		
+		
+	# level completed ?
+	if $ObstacleDetector.overlaps_area(%Finish):
+		level_finish_reached.emit()
+	
