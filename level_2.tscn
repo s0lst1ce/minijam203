@@ -80,6 +80,3 @@ collision_mask = 18
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Finish" unique_id=580124904]
 shape = SubResource("RectangleShape2D_xdadj")
-
-[node name="SpawnPoint" type="Marker2D" parent="Finish" unique_id=1793907384]
-position = Vector2(-596, 176)

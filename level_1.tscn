@@ -70,9 +70,6 @@ texture = ExtResource("3_ihfcg")
 position = Vector2(441.75, 372.875)
 shape = SubResource("RectangleShape2D_rka8t")
 
-[node name="SpawnPoint" type="Marker2D" parent="." unique_id=1562587021]
-position = Vector2(48, 335)
-
 [node name="Finish" type="Area2D" parent="." unique_id=1013722906 groups=["finish"]]
 unique_name_in_owner = true
 position = Vector2(493, 162)

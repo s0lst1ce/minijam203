@@ -52,9 +52,6 @@ metadata/_edit_use_anchors_ = true
 position = Vector2(287.5, 275)
 shape = SubResource("RectangleShape2D_vfa6b")
 
-[node name="SpawnPoint" type="Marker2D" parent="." unique_id=876728095]
-position = Vector2(103, 288)
-
 [node name="Finish" type="Area2D" parent="." unique_id=1659119718 groups=["finish"]]
 unique_name_in_owner = true
 position = Vector2(706, 293)
