@@ -1,7 +1,9 @@
 [gd_scene format=3 uid="uid://cwmye6vf46j2h"]
 
 [ext_resource type="PackedScene" uid="uid://1ofwps6u2jy5" path="res://dog_character.tscn" id="1_3hls8"]
+[ext_resource type="Script" uid="uid://cm5fy51uui7o4" path="res://level.gd" id="1_ihfcg"]
 [ext_resource type="Script" uid="uid://jsst0d8s3sxv" path="res://moving_platform.gd" id="2_hn12h"]
+[ext_resource type="PackedScene" uid="uid://cy0cfmrjp3r58" path="res://level_2.tscn" id="2_rka8t"]
 [ext_resource type="Texture2D" uid="uid://dydx7iif413k5" path="res://icon.svg" id="3_ihfcg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t218m"]
@@ -10,12 +12,15 @@ size = Vector2(228, 13)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rka8t"]
 size = Vector2(149.5, 24.25)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hn12h"]
+size = Vector2(82.5, 46.5)
+
 [node name="Level 1" type="Node2D" unique_id=1611830715]
+script = ExtResource("1_ihfcg")
+next_scene = ExtResource("2_rka8t")
 
 [node name="DogCharacter" parent="." unique_id=422305244 instance=ExtResource("1_3hls8")]
 position = Vector2(70, 314)
-collision_layer = 16
-collision_mask = 16
 
 [node name="Floor" type="StaticBody2D" parent="." unique_id=637017212]
 collision_layer = 112
@@ -58,10 +63,30 @@ collision_layer = 80
 collision_mask = 80
 
 [node name="Sprite2D" type="Sprite2D" parent="MovingPlatform2/AnimatableBody2D" unique_id=1151085009]
-position = Vector2(623.5, 373)
+position = Vector2(441.5, 373)
 scale = Vector2(1.1640625, 0.18750015)
 texture = ExtResource("3_ihfcg")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MovingPlatform2/AnimatableBody2D" unique_id=1707102939]
-position = Vector2(623.75, 372.875)
+position = Vector2(441.75, 372.875)
 shape = SubResource("RectangleShape2D_rka8t")
+
+[node name="SpawnPoint" type="Marker2D" parent="." unique_id=1562587021]
+position = Vector2(48, 335)
+
+[node name="Finish" type="Area2D" parent="." unique_id=1013722906 groups=["finish"]]
+unique_name_in_owner = true
+position = Vector2(493, 162)
+collision_layer = 2
+collision_mask = 0
+
+[node name="ColorRect" type="ColorRect" parent="Finish" unique_id=992718469]
+offset_left = -42.0
+offset_top = -23.0
+offset_right = 42.0
+offset_bottom = 24.0
+metadata/_edit_use_anchors_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Finish" unique_id=1028422015]
+shape = SubResource("RectangleShape2D_hn12h")
+debug_color = Color(0.7230016, 0.37795532, 0.75514567, 0.41960785)

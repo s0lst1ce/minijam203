@@ -5,6 +5,8 @@ extends CharacterBody2D
 
 @onready var animated_sprite = $AnimatedSprite2D
 
+signal level_finish_reached
+
 const JUMP_SPEED: float = 300.0
 const WALK_POWER: float = 400.0
 const MAX_HSPEED: float = 800.0
@@ -73,7 +75,6 @@ func _physics_process(delta: float) -> void:
 func shares_mode(collider: CollisionObject2D, mode: int) -> bool:
 	return collider.get_collision_layer_value(mode_to_collision(mode))
 
-
 func _process(_delta: float) -> void:
 	# TODO: is there a method to test if one of many action is pressed ?
 	if Input.is_action_just_pressed("set_to_mode0") or Input.is_action_just_pressed("set_to_mode1") or Input.is_action_just_pressed("set_to_mode2"):
@@ -87,6 +88,7 @@ func _process(_delta: float) -> void:
 			next_mode = 2
 
 		var can_switch = true
+		# worst shit I ever wrote in Godot
 		for body in $ObstacleDetector.get_overlapping_bodies():
 			#we don't want to prevent changing mode because of oneself
 			if body == self:
@@ -103,10 +105,16 @@ func _process(_delta: float) -> void:
 			#applying new one
 			set_collision_layer_value(mode_to_collision(current_mode), true)
 			set_collision_mask_value(mode_to_collision(current_mode), true)
-	
+
 	# animation handling
 	if velocity == Vector2.ZERO:
 		animated_sprite.play("idle")
 	else:
 		animated_sprite.flip_h = velocity.x < 0
 		animated_sprite.play("walk")
+		
+		
+	# level completed ?
+	if $ObstacleDetector.overlaps_area(%Finish):
+		level_finish_reached.emit()
+	
