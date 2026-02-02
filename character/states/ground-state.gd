@@ -2,7 +2,7 @@ extends State
 
 class_name GroundState
 
-@export var jump_velocity: float = -1 * 400.0
+@export var jump_velocity: float = -1 * 300.0
 @export var air_state: State
 # overridable. Nom de l'anim dans l'AnimationPlayer, pas dans l'AnimationTree
 @export var jump_animation: String = "jump"

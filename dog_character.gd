@@ -116,6 +116,9 @@ func _process(_delta: float) -> void:
 	# level completed ?
 	if $ObstacleDetector.overlaps_area(%Finish):
 		level_finish_reached.emit()
+		
+	if Input.is_action_just_pressed("reload"):
+		get_tree().reload_current_scene()
 	
 	update_direction()
 
