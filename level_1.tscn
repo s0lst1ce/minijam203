@@ -8,6 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://dqrjwsdt0h5ae" path="res://paved_floor.tscn" id="7_j7kpp"]
 [ext_resource type="PackedScene" uid="uid://dxifurxi4w0f2" path="res://paperplane_go.tscn" id="8_5rr72"]
 [ext_resource type="PackedScene" uid="uid://cwfiuicx1vdnr" path="res://bus_shelter_go.tscn" id="8_bjebc"]
+[ext_resource type="PackedScene" uid="uid://cv5dbychl0ph5" path="res://side_walk_ext.tscn" id="9_5rr72"]
+[ext_resource type="PackedScene" uid="uid://jr1y76pvntao" path="res://backgground_day.tscn" id="10_gyffv"]
 
 [node name="Level 1" type="Node2D" unique_id=1611830715]
 script = ExtResource("1_ihfcg")
@@ -89,3 +91,9 @@ position = Vector2(894, 386)
 [node name="Wall7" parent="." unique_id=158298338 instance=ExtResource("7_j7kpp")]
 position = Vector2(0, 465)
 rotation = -1.5707964
+
+[node name="SideWalk" parent="." unique_id=148337896 instance=ExtResource("9_5rr72")]
+position = Vector2(536.5, 718)
+scale = Vector2(0.2899088, 0.050365604)
+
+[node name="Environement" parent="." unique_id=271244707 instance=ExtResource("10_gyffv")]

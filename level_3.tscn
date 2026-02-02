@@ -10,6 +10,8 @@
 [ext_resource type="PackedScene" uid="uid://br5trhr12qapt" path="res://finish.tscn" id="8_7ds5r"]
 [ext_resource type="PackedScene" uid="uid://dxifurxi4w0f2" path="res://paperplane_go.tscn" id="9_b60u5"]
 [ext_resource type="PackedScene" uid="uid://c42scrsshhd5u" path="res://paperplane_po.tscn" id="10_kmy7e"]
+[ext_resource type="PackedScene" uid="uid://jr1y76pvntao" path="res://backgground_day.tscn" id="11_kmy7e"]
+[ext_resource type="PackedScene" uid="uid://cv5dbychl0ph5" path="res://side_walk_ext.tscn" id="12_833wy"]
 
 [node name="Level 3" type="Node2D" unique_id=221370902]
 script = ExtResource("1_16pka")
@@ -18,7 +20,7 @@ next_scene_path = "res://level_0.tscn"
 [node name="DogCharacter" parent="." unique_id=422305244 instance=ExtResource("2_j8bo8")]
 unique_name_in_owner = true
 z_index = 10
-position = Vector2(299, 375)
+position = Vector2(958, 732)
 
 [node name="Floor2" parent="." unique_id=752056718 instance=ExtResource("3_16pka")]
 position = Vector2(0, 766)
@@ -122,3 +124,10 @@ offset = Vector2(-150, 0)
 position = Vector2(410, 320)
 rotation = 1.5707964
 offset = Vector2(-100, 0)
+
+[node name="Environement" parent="." unique_id=271244707 instance=ExtResource("11_kmy7e")]
+
+[node name="SideWalk" parent="." unique_id=148337896 instance=ExtResource("12_833wy")]
+z_index = -2
+position = Vector2(841.5, 717.00006)
+scale = Vector2(0.4655074, 0.050365604)
