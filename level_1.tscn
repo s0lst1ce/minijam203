@@ -2,89 +2,90 @@
 
 [ext_resource type="PackedScene" uid="uid://1ofwps6u2jy5" path="res://dog_character.tscn" id="1_3hls8"]
 [ext_resource type="Script" uid="uid://cm5fy51uui7o4" path="res://level.gd" id="1_ihfcg"]
-[ext_resource type="Script" uid="uid://jsst0d8s3sxv" path="res://moving_platform.gd" id="2_hn12h"]
-[ext_resource type="Texture2D" uid="uid://dydx7iif413k5" path="res://icon.svg" id="3_ihfcg"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_t218m"]
-size = Vector2(228, 13)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_rka8t"]
-size = Vector2(149.5, 24.25)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_hn12h"]
-size = Vector2(82.5, 46.5)
+[ext_resource type="PackedScene" uid="uid://c42scrsshhd5u" path="res://paperplane_po.tscn" id="3_rka8t"]
+[ext_resource type="PackedScene" uid="uid://br5trhr12qapt" path="res://finish.tscn" id="6_5hph3"]
+[ext_resource type="PackedScene" uid="uid://t2r55666tr6" path="res://mailbox_pg.tscn" id="7_bjebc"]
+[ext_resource type="PackedScene" uid="uid://dqrjwsdt0h5ae" path="res://paved_floor.tscn" id="7_j7kpp"]
+[ext_resource type="PackedScene" uid="uid://dxifurxi4w0f2" path="res://paperplane_go.tscn" id="8_5rr72"]
+[ext_resource type="PackedScene" uid="uid://cwfiuicx1vdnr" path="res://bus_shelter_go.tscn" id="8_bjebc"]
 
 [node name="Level 1" type="Node2D" unique_id=1611830715]
 script = ExtResource("1_ihfcg")
 next_scene_path = "res://level_2.tscn"
 
 [node name="DogCharacter" parent="." unique_id=422305244 instance=ExtResource("1_3hls8")]
-position = Vector2(70, 314)
+position = Vector2(486, 540)
 
-[node name="Floor" type="StaticBody2D" parent="." unique_id=637017212]
-collision_layer = 112
-collision_mask = 112
+[node name="MovingPlatform" parent="." unique_id=1011694896 instance=ExtResource("3_rka8t")]
+position = Vector2(525, 331)
 
-[node name="ColorRect" type="ColorRect" parent="Floor" unique_id=73619523]
-offset_left = 1.0
-offset_top = 362.0
-offset_right = 229.0
-offset_bottom = 375.0
-color = Color(0.351451, 0.9999997, 0.8610747, 1)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor" unique_id=1648014869]
-position = Vector2(115, 368.5)
-shape = SubResource("RectangleShape2D_t218m")
-
-[node name="MovingPlatform" type="Node2D" parent="." unique_id=734034195]
-position = Vector2(547, 370)
-script = ExtResource("2_hn12h")
-offset = Vector2(-200, 0)
-
-[node name="AnimatableBody2D" type="AnimatableBody2D" parent="MovingPlatform" unique_id=1020315425]
-position = Vector2(2, 0)
-collision_layer = 96
-collision_mask = 96
-
-[node name="Sprite2D" type="Sprite2D" parent="MovingPlatform/AnimatableBody2D" unique_id=920157112]
-position = Vector2(-0.49996948, 3.0517578e-05)
-scale = Vector2(1.1640625, 0.18750015)
-texture = ExtResource("3_ihfcg")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="MovingPlatform/AnimatableBody2D" unique_id=1818431043]
-position = Vector2(-0.25, -0.125)
-shape = SubResource("RectangleShape2D_rka8t")
-
-[node name="MovingPlatform2" type="Node2D" parent="." unique_id=1807583889]
-position = Vector2(800, 369)
-script = ExtResource("2_hn12h")
-
-[node name="AnimatableBody2D" type="AnimatableBody2D" parent="MovingPlatform2" unique_id=2130968681]
-collision_layer = 80
-collision_mask = 80
-
-[node name="Sprite2D" type="Sprite2D" parent="MovingPlatform2/AnimatableBody2D" unique_id=1151085009]
-position = Vector2(-0.5, 9.536745e-06)
-scale = Vector2(1.1640625, 0.18750015)
-texture = ExtResource("3_ihfcg")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="MovingPlatform2/AnimatableBody2D" unique_id=1707102939]
-position = Vector2(-0.25003052, -0.12502098)
-shape = SubResource("RectangleShape2D_rka8t")
-
-[node name="Finish" type="Area2D" parent="." unique_id=1013722906 groups=["finish"]]
+[node name="Finish" parent="." unique_id=1056008474 instance=ExtResource("6_5hph3")]
 unique_name_in_owner = true
-position = Vector2(805, 36)
-collision_layer = 2
-collision_mask = 0
+position = Vector2(964, 135)
 
-[node name="ColorRect" type="ColorRect" parent="Finish" unique_id=992718469]
-offset_left = -42.0
-offset_top = -23.0
-offset_right = 42.0
-offset_bottom = 24.0
-metadata/_edit_use_anchors_ = true
+[node name="Floor2" parent="." unique_id=752056718 instance=ExtResource("7_j7kpp")]
+position = Vector2(0, 563)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Finish" unique_id=1028422015]
-shape = SubResource("RectangleShape2D_hn12h")
-debug_color = Color(0.7230016, 0.37795532, 0.75514567, 0.41960785)
+[node name="Floor3" parent="." unique_id=1500642607 instance=ExtResource("7_j7kpp")]
+position = Vector2(153, 563)
+
+[node name="Floor4" parent="." unique_id=608224285 instance=ExtResource("7_j7kpp")]
+position = Vector2(306, 563)
+
+[node name="Floor5" parent="." unique_id=134970543 instance=ExtResource("7_j7kpp")]
+position = Vector2(612, 563)
+
+[node name="Floor6" parent="." unique_id=1756307121 instance=ExtResource("7_j7kpp")]
+position = Vector2(459, 563)
+
+[node name="BusShelterGO" parent="." unique_id=1086050009 instance=ExtResource("8_bjebc")]
+position = Vector2(85, 403)
+
+[node name="Wall" parent="." unique_id=1955749608 instance=ExtResource("7_j7kpp")]
+position = Vector2(0, 568)
+rotation = -1.5707964
+
+[node name="Wall2" parent="." unique_id=1528498304 instance=ExtResource("7_j7kpp")]
+position = Vector2(0, 415)
+rotation = -1.5707964
+
+[node name="Wall3" parent="." unique_id=477901090 instance=ExtResource("7_j7kpp")]
+z_index = 1
+position = Vector2(1071, 415)
+rotation = 1.5707964
+
+[node name="Wall4" parent="." unique_id=334594474 instance=ExtResource("7_j7kpp")]
+z_index = 1
+position = Vector2(1071, 262)
+rotation = 1.5707964
+
+[node name="MailboxPG" parent="." unique_id=2050237249 instance=ExtResource("7_bjebc")]
+position = Vector2(288, 482)
+
+[node name="PaperPlaneGO" parent="." unique_id=409963867 instance=ExtResource("8_5rr72")]
+position = Vector2(696, 331)
+offset = Vector2(0, -150)
+
+[node name="Wall5" parent="." unique_id=1553751218 instance=ExtResource("7_j7kpp")]
+z_index = 1
+position = Vector2(1071, 109)
+rotation = 1.5707964
+
+[node name="Wall6" parent="." unique_id=1844679799 instance=ExtResource("7_j7kpp")]
+z_index = 1
+position = Vector2(1071, -44)
+rotation = 1.5707964
+
+[node name="Floor7" parent="." unique_id=931941011 instance=ExtResource("7_j7kpp")]
+position = Vector2(918, 563)
+
+[node name="Floor8" parent="." unique_id=1968013833 instance=ExtResource("7_j7kpp")]
+position = Vector2(765, 563)
+
+[node name="Floor11" parent="." unique_id=2097302190 instance=ExtResource("7_j7kpp")]
+z_index = -1
+position = Vector2(894, 184)
+
+[node name="Wall7" parent="." unique_id=158298338 instance=ExtResource("7_j7kpp")]
+position = Vector2(0, 263)
+rotation = -1.5707964
