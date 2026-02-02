@@ -2,20 +2,10 @@
 
 [ext_resource type="PackedScene" uid="uid://1ofwps6u2jy5" path="res://dog_character.tscn" id="1_jg0dc"]
 [ext_resource type="Script" uid="uid://cm5fy51uui7o4" path="res://level.gd" id="1_xdadj"]
-[ext_resource type="Texture2D" uid="uid://bsemkg4os2u32" path="res://Dropbox/assets/world/props/trashcan_go.png" id="3_xdadj"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_t218m"]
-resource_local_to_scene = true
-size = Vector2(760, 13)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_jg0dc"]
-size = Vector2(265, 13)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_nmjpi"]
-size = Vector2(75, 44)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_xdadj"]
-size = Vector2(82.5, 46.5)
+[ext_resource type="PackedScene" uid="uid://br5trhr12qapt" path="res://finish.tscn" id="3_1y8me"]
+[ext_resource type="PackedScene" uid="uid://ot8bqyqqu0i6" path="res://trashcan_go.tscn" id="4_1y8me"]
+[ext_resource type="PackedScene" uid="uid://dqrjwsdt0h5ae" path="res://paved_floor.tscn" id="4_n7ypv"]
+[ext_resource type="PackedScene" uid="uid://y06qifwq66rp" path="res://bus_shelter_pg.tscn" id="5_n7ypv"]
 
 [node name="Level 2" type="Node2D" unique_id=221370902]
 script = ExtResource("1_xdadj")
@@ -23,60 +13,56 @@ next_scene_path = "res://level_3.tscn"
 
 [node name="DogCharacter" parent="." unique_id=422305244 instance=ExtResource("1_jg0dc")]
 unique_name_in_owner = true
-position = Vector2(57, 279)
+position = Vector2(202, 537)
 
-[node name="Floor" type="StaticBody2D" parent="." unique_id=1750904835]
-position = Vector2(380, 319)
-collision_layer = 112
-collision_mask = 112
-
-[node name="ColorRect" type="ColorRect" parent="Floor" unique_id=1336812584]
-offset_left = -380.0
-offset_top = -6.0
-offset_right = 380.0
-offset_bottom = 7.0
-color = Color(0.351451, 0.9999997, 0.8610747, 1)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor" unique_id=801102118]
-position = Vector2(0, 0.5)
-shape = SubResource("RectangleShape2D_t218m")
-
-[node name="Platform" type="StaticBody2D" parent="." unique_id=1809337570]
-position = Vector2(566, 171)
-collision_layer = 16
-collision_mask = 16
-
-[node name="ColorRect" type="ColorRect" parent="Platform" unique_id=1309687905]
-offset_left = -132.0
-offset_top = -6.0
-offset_right = 133.0
-offset_bottom = 7.0
-color = Color(0.351451, 0.9999997, 0.8610747, 1)
-metadata/_edit_use_anchors_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform" unique_id=449407469]
-position = Vector2(0.5, 0.5)
-shape = SubResource("RectangleShape2D_jg0dc")
-
-[node name="StepLadder" type="RigidBody2D" parent="." unique_id=717578546]
-position = Vector2(517, 267)
-collision_layer = 96
-collision_mask = 96
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StepLadder" unique_id=1475686232]
-position = Vector2(4.5, 24)
-shape = SubResource("RectangleShape2D_nmjpi")
-
-[node name="Sprite2D" type="Sprite2D" parent="StepLadder" unique_id=394345799]
-position = Vector2(-2, 14)
-scale = Vector2(0.17725757, 0.14180608)
-texture = ExtResource("3_xdadj")
-
-[node name="Finish" type="Area2D" parent="." unique_id=867154199 groups=["finish"]]
+[node name="Finish" parent="." unique_id=1056008474 instance=ExtResource("3_1y8me")]
 unique_name_in_owner = true
-position = Vector2(653, 106)
-collision_layer = 16
-collision_mask = 18
+position = Vector2(600, 354)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Finish" unique_id=580124904]
-shape = SubResource("RectangleShape2D_xdadj")
+[node name="Floor2" parent="." unique_id=752056718 instance=ExtResource("4_n7ypv")]
+position = Vector2(0, 563)
+
+[node name="Floor3" parent="." unique_id=483965315 instance=ExtResource("4_n7ypv")]
+position = Vector2(153, 563)
+
+[node name="Floor4" parent="." unique_id=120091074 instance=ExtResource("4_n7ypv")]
+position = Vector2(306, 563)
+
+[node name="Floor5" parent="." unique_id=641501239 instance=ExtResource("4_n7ypv")]
+position = Vector2(612, 563)
+
+[node name="Floor6" parent="." unique_id=1400573835 instance=ExtResource("4_n7ypv")]
+position = Vector2(459, 563)
+
+[node name="Wall" parent="." unique_id=1934934006 instance=ExtResource("4_n7ypv")]
+position = Vector2(0, 568)
+rotation = -1.5707964
+
+[node name="Wall2" parent="." unique_id=1927437294 instance=ExtResource("4_n7ypv")]
+position = Vector2(0, 415)
+rotation = -1.5707964
+
+[node name="Wall3" parent="." unique_id=2116167317 instance=ExtResource("4_n7ypv")]
+z_index = 1
+position = Vector2(765, 415)
+rotation = 1.5707964
+
+[node name="Wall4" parent="." unique_id=658883947 instance=ExtResource("4_n7ypv")]
+z_index = 1
+position = Vector2(765, 262)
+rotation = 1.5707964
+
+[node name="Wall7" parent="." unique_id=340651785 instance=ExtResource("4_n7ypv")]
+position = Vector2(0, 263)
+rotation = -1.5707964
+
+[node name="BusShelterPG" parent="." unique_id=1086050009 instance=ExtResource("5_n7ypv")]
+position = Vector2(468, 402)
+
+[node name="TrashcanGO" parent="." unique_id=318475002 instance=ExtResource("4_1y8me")]
+position = Vector2(499, 487)
+
+[node name="Wall5" parent="." unique_id=1467163112 instance=ExtResource("4_n7ypv")]
+z_index = 1
+position = Vector2(765, 109)
+rotation = 1.5707964

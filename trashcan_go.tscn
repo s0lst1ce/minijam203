@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://ot8bqyqqu0i6"]
+
+[ext_resource type="Texture2D" uid="uid://bsemkg4os2u32" path="res://Dropbox/assets/world/props/trashcan_go.png" id="1_deufo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nmjpi"]
+size = Vector2(86, 78)
+
+[node name="TrashcanGO" type="RigidBody2D" unique_id=318475002]
+collision_layer = 96
+collision_mask = 96
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=758644501]
+position = Vector2(43, 49)
+shape = SubResource("RectangleShape2D_nmjpi")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1272398814]
+scale = Vector2(0.20046622, 0.16037299)
+texture = ExtResource("1_deufo")
+centered = false
+region_enabled = true
+region_rect = Rect2(120, 161, 429, 553)
