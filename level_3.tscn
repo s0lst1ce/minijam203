@@ -2,26 +2,14 @@
 
 [ext_resource type="Script" uid="uid://cm5fy51uui7o4" path="res://level.gd" id="1_16pka"]
 [ext_resource type="PackedScene" uid="uid://1ofwps6u2jy5" path="res://dog_character.tscn" id="2_j8bo8"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_t218m"]
-resource_local_to_scene = true
-size = Vector2(971, 30.5)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_jg0dc"]
-size = Vector2(265, 13)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_nmjpi"]
-size = Vector2(64.25, 53)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_xdadj"]
-size = Vector2(82.5, 46.5)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_16pka"]
-size = Vector2(169, 163)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_1fhj5"]
-resource_local_to_scene = true
-size = Vector2(26, 327.625)
+[ext_resource type="PackedScene" uid="uid://dqrjwsdt0h5ae" path="res://paved_floor.tscn" id="3_16pka"]
+[ext_resource type="PackedScene" uid="uid://clq8qmntq4rcy" path="res://bus_shelter_po.tscn" id="4_j8bo8"]
+[ext_resource type="PackedScene" uid="uid://cbhit3drgaslk" path="res://vending_machine_go.tscn" id="5_1jdk1"]
+[ext_resource type="PackedScene" uid="uid://dbr6ecl51iehc" path="res://trashcan_pg.tscn" id="6_6p2dc"]
+[ext_resource type="PackedScene" uid="uid://dll70r8t4ll4w" path="res://paperplane_pg.tscn" id="7_fmu3g"]
+[ext_resource type="PackedScene" uid="uid://br5trhr12qapt" path="res://finish.tscn" id="8_7ds5r"]
+[ext_resource type="PackedScene" uid="uid://dxifurxi4w0f2" path="res://paperplane_go.tscn" id="9_b60u5"]
+[ext_resource type="PackedScene" uid="uid://c42scrsshhd5u" path="res://paperplane_po.tscn" id="10_kmy7e"]
 
 [node name="Level 3" type="Node2D" unique_id=221370902]
 script = ExtResource("1_16pka")
@@ -30,73 +18,107 @@ next_scene_path = "res://level_0.tscn"
 [node name="DogCharacter" parent="." unique_id=422305244 instance=ExtResource("2_j8bo8")]
 unique_name_in_owner = true
 z_index = 10
-position = Vector2(72, 624)
+position = Vector2(299, 375)
 
-[node name="Floor" type="StaticBody2D" parent="." unique_id=359311422]
-position = Vector2(383, 667)
-collision_layer = 112
-collision_mask = 112
+[node name="Floor2" parent="." unique_id=752056718 instance=ExtResource("3_16pka")]
+position = Vector2(0, 766)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor" unique_id=1856905392]
-position = Vector2(103.5, 0)
-shape = SubResource("RectangleShape2D_t218m")
-debug_color = Color(1, 1, 1, 1)
+[node name="Floor3" parent="." unique_id=1962700323 instance=ExtResource("3_16pka")]
+position = Vector2(153, 766)
 
-[node name="Platform" type="StaticBody2D" parent="." unique_id=1809337570]
-position = Vector2(568, 494)
-collision_layer = 48
-collision_mask = 48
+[node name="Floor4" parent="." unique_id=346404426 instance=ExtResource("3_16pka")]
+position = Vector2(306, 766)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform" unique_id=449407469]
-position = Vector2(0.5, 0.5)
-shape = SubResource("RectangleShape2D_jg0dc")
-debug_color = Color(0.8547576, 0.3686898, 3.85046e-07, 0.41960785)
+[node name="Floor5" parent="." unique_id=1769508828 instance=ExtResource("3_16pka")]
+position = Vector2(612, 766)
 
-[node name="Box" type="RigidBody2D" parent="." unique_id=717578546]
-position = Vector2(565, 624)
-collision_layer = 96
-collision_mask = 96
+[node name="Floor6" parent="." unique_id=910639583 instance=ExtResource("3_16pka")]
+position = Vector2(459, 766)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Box" unique_id=1475686232]
-position = Vector2(0.125, 0)
-shape = SubResource("RectangleShape2D_nmjpi")
-debug_color = Color(0.51661754, 0.4205707, 1, 0.41960785)
+[node name="Wall" parent="." unique_id=1833979137 instance=ExtResource("3_16pka")]
+position = Vector2(0, 771)
+rotation = -1.5707964
 
-[node name="Finish" type="Area2D" parent="." unique_id=867154199 groups=["finish"]]
-unique_name_in_owner = true
-position = Vector2(656, 445)
-collision_layer = 16
-collision_mask = 18
+[node name="Wall2" parent="." unique_id=734886196 instance=ExtResource("3_16pka")]
+position = Vector2(0, 618)
+rotation = -1.5707964
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Finish" unique_id=580124904]
-shape = SubResource("RectangleShape2D_xdadj")
+[node name="Wall3" parent="." unique_id=181378527 instance=ExtResource("3_16pka")]
+z_index = 1
+position = Vector2(1683, 618)
+rotation = 1.5707964
 
-[node name="HighBox" type="RigidBody2D" parent="." unique_id=1446737728]
-position = Vector2(207, 570)
-collision_layer = 80
-collision_mask = 80
-mass = 1.5
+[node name="Wall4" parent="." unique_id=824490315 instance=ExtResource("3_16pka")]
+z_index = 1
+position = Vector2(1683, 465)
+rotation = 1.5707964
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HighBox" unique_id=1550138489]
-shape = SubResource("RectangleShape2D_16pka")
-debug_color = Color(0, 0.6347695, 0.4288601, 0.41960785)
+[node name="Wall5" parent="." unique_id=1872327813 instance=ExtResource("3_16pka")]
+z_index = 1
+position = Vector2(1683, 312)
+rotation = 1.5707964
 
-[node name="Wall" type="StaticBody2D" parent="." unique_id=879548703]
-position = Vector2(18, 507)
-collision_layer = 112
-collision_mask = 112
+[node name="Wall6" parent="." unique_id=474984617 instance=ExtResource("3_16pka")]
+z_index = 1
+position = Vector2(1683, 159)
+rotation = 1.5707964
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall" unique_id=1563212768]
-position = Vector2(-4, -19.1875)
-shape = SubResource("RectangleShape2D_1fhj5")
-debug_color = Color(1, 1, 1, 1)
+[node name="Floor7" parent="." unique_id=74940672 instance=ExtResource("3_16pka")]
+position = Vector2(918, 766)
 
-[node name="Wall2" type="StaticBody2D" parent="." unique_id=894541404]
-position = Vector2(963, 507)
-collision_layer = 112
-collision_mask = 112
+[node name="Floor8" parent="." unique_id=476641031 instance=ExtResource("3_16pka")]
+position = Vector2(765, 766)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall2" unique_id=936625390]
-position = Vector2(-4, -19.1875)
-shape = SubResource("RectangleShape2D_1fhj5")
-debug_color = Color(1, 1, 1, 1)
+[node name="Wall7" parent="." unique_id=70411099 instance=ExtResource("3_16pka")]
+position = Vector2(0, 466)
+rotation = -1.5707964
+
+[node name="Floor9" parent="." unique_id=297717009 instance=ExtResource("3_16pka")]
+position = Vector2(1224, 766)
+
+[node name="Floor10" parent="." unique_id=1966977067 instance=ExtResource("3_16pka")]
+position = Vector2(1071, 766)
+
+[node name="Floor11" parent="." unique_id=1067647331 instance=ExtResource("3_16pka")]
+position = Vector2(1530, 766)
+
+[node name="Floor12" parent="." unique_id=1976093940 instance=ExtResource("3_16pka")]
+position = Vector2(1377, 766)
+
+[node name="BusShelterPO" parent="." unique_id=1086050009 instance=ExtResource("4_j8bo8")]
+position = Vector2(1399, 605)
+
+[node name="VendingMachineGO" parent="." unique_id=318475002 instance=ExtResource("5_1jdk1")]
+position = Vector2(1362, 442)
+
+[node name="TrashcanPG" parent="." unique_id=780994490 instance=ExtResource("6_6p2dc")]
+position = Vector2(1184, 680)
+
+[node name="PaperPlanePG" parent="." unique_id=1011694896 instance=ExtResource("7_fmu3g")]
+position = Vector2(774, 497)
+offset = Vector2(-200, -50)
+
+[node name="Floor13" parent="." unique_id=1809485558 instance=ExtResource("3_16pka")]
+z_index = -1
+position = Vector2(29, 404)
+
+[node name="Floor14" parent="." unique_id=644248657 instance=ExtResource("3_16pka")]
+z_index = -1
+position = Vector2(182, 404)
+
+[node name="Finish2" parent="." unique_id=1056008474 instance=ExtResource("8_7ds5r")]
+position = Vector2(66, 356)
+
+[node name="Wall8" parent="." unique_id=999789939 instance=ExtResource("3_16pka")]
+position = Vector2(0, 314)
+rotation = -1.5707964
+
+[node name="PaperPlaneGO" parent="." unique_id=1802801986 instance=ExtResource("9_b60u5")]
+position = Vector2(511, 225)
+rotation = -1.5707964
+offset = Vector2(-150, 0)
+
+[node name="PaperPlanePO" parent="." unique_id=1849071220 instance=ExtResource("10_kmy7e")]
+position = Vector2(410, 320)
+rotation = 1.5707964
+offset = Vector2(-100, 0)

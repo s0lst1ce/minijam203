@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://dll70r8t4ll4w"]
+
+[ext_resource type="Script" uid="uid://jsst0d8s3sxv" path="res://moving_platform.gd" id="1_x2qxp"]
+[ext_resource type="Texture2D" uid="uid://dve01jbk8ce4h" path="res://Dropbox/assets/world/props/paperplane_pg.png" id="2_x2qxp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rka8t"]
+size = Vector2(85, 30)
+
+[node name="PaperPlanePG" type="Node2D" unique_id=1011694896]
+script = ExtResource("1_x2qxp")
+offset = Vector2(-200, 0)
+
+[node name="AnimatableBody2D" type="AnimatableBody2D" parent="." unique_id=1473508273]
+position = Vector2(2, 0)
+collision_layer = 48
+collision_mask = 48
+
+[node name="Sprite2D" type="Sprite2D" parent="AnimatableBody2D" unique_id=974589066]
+position = Vector2(-4, -39)
+scale = Vector2(0.041218627, 0.041218624)
+texture = ExtResource("2_x2qxp")
+centered = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatableBody2D" unique_id=29547439]
+position = Vector2(41, 15)
+shape = SubResource("RectangleShape2D_rka8t")
