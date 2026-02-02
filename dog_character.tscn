@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://1ofwps6u2jy5"]
 
 [ext_resource type="Script" uid="uid://bnvaop2n34a5g" path="res://dog_character.gd" id="1_5g6is"]
+[ext_resource type="PackedScene" uid="uid://bey68jt6kcp58" path="res://shortcuts_ui.tscn" id="2_yegt5"]
 [ext_resource type="Texture2D" uid="uid://blkc5e533r33h" path="res://Dropbox/assets/dog-character/jump-diagonal-animation/jump_vert_spritesheet.png" id="7_c3loo"]
 [ext_resource type="Texture2D" uid="uid://bcrfmyjupdecr" path="res://Dropbox/assets/dog-character/walk-animation/walk_vert_spritesheet.png" id="7_dvi7p"]
 [ext_resource type="Texture2D" uid="uid://bepm2e254s7r2" path="res://Dropbox/assets/dog-character/jump-diagonal-animation/jump_violet_spritesheet.png" id="8_yegt5"]
@@ -532,6 +533,12 @@ script = ExtResource("1_5g6is")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=863714472]
 zoom = Vector2(1.8, 1.8)
+
+[node name="ShortcutsUi" parent="Camera2D" unique_id=1226724531 instance=ExtResource("2_yegt5")]
+offset_left = -502.0
+offset_top = -275.0
+offset_right = -502.0
+offset_bottom = -275.0
 
 [node name="PurpleSprite2D" type="Sprite2D" parent="." unique_id=1718895649]
 position = Vector2(3.8146973e-06, 0)
