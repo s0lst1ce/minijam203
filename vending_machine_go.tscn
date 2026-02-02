@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://cbhit3drgaslk"]
+
+[ext_resource type="Texture2D" uid="uid://cixtnj2xmip40" path="res://Dropbox/assets/world/props/vending_machine_go.png" id="1_1jeit"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nmjpi"]
+size = Vector2(178, 162)
+
+[node name="VendingMachineGO" type="RigidBody2D" unique_id=318475002]
+z_index = 2
+collision_layer = 96
+collision_mask = 96
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=758644501]
+position = Vector2(89, 81)
+shape = SubResource("RectangleShape2D_nmjpi")
+
+[node name="Left" type="Sprite2D" parent="." unique_id=1272398814]
+z_index = 1
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_1jeit")
+centered = false
+region_enabled = true
+region_rect = Rect2(504, 247, 973, 1638)
+
+[node name="Rightt" type="Sprite2D" parent="." unique_id=1282533663]
+position = Vector2(82, 0)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_1jeit")
+centered = false
+region_enabled = true
+region_rect = Rect2(504, 247, 973, 1638)

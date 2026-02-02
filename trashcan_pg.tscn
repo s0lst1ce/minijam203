@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://dbr6ecl51iehc"]
+
+[ext_resource type="Texture2D" uid="uid://bjknvfdoo1cch" path="res://Dropbox/assets/world/props/trashcan_pg.png" id="1_3ob03"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3ob03"]
+size = Vector2(86, 85)
+
+[node name="TrashcanPG" type="RigidBody2D" unique_id=318475002]
+z_index = 2
+collision_layer = 48
+collision_mask = 48
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1272398814]
+scale = Vector2(0.20046622, 0.16037299)
+texture = ExtResource("1_3ob03")
+centered = false
+region_enabled = true
+region_rect = Rect2(120, 161, 429, 553)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=417247673]
+position = Vector2(43, 42.5)
+shape = SubResource("RectangleShape2D_3ob03")
