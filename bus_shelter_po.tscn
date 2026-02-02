@@ -6,6 +6,7 @@
 size = Vector2(193, 15)
 
 [node name="BusShelterPO" type="StaticBody2D" unique_id=1086050009]
+z_index = 1
 collision_layer = 80
 collision_mask = 80
 
@@ -14,7 +15,6 @@ position = Vector2(96.5, 7.5)
 shape = SubResource("RectangleShape2D_oyy06")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1428869645]
-z_index = 5
 scale = Vector2(0.16666666, 0.16666666)
 texture = ExtResource("1_fevyr")
 centered = false
