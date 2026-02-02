@@ -1,0 +1,105 @@
+[gd_scene format=3 uid="uid://dab27bsey7f0n"]
+
+[ext_resource type="Script" uid="uid://cm5fy51uui7o4" path="res://level.gd" id="1_ch2wq"]
+[ext_resource type="PackedScene" uid="uid://1ofwps6u2jy5" path="res://dog_character.tscn" id="2_pk8oy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pk8oy"]
+size = Vector2(1722, 26)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jg0dc"]
+size = Vector2(265, 13)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nmjpi"]
+size = Vector2(64.25, 53)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xdadj"]
+size = Vector2(82.5, 46.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_16pka"]
+size = Vector2(169, 163)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ch2wq"]
+resource_local_to_scene = true
+size = Vector2(26, 531.625)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o5bas"]
+resource_local_to_scene = true
+size = Vector2(26, 531.625)
+
+[node name="Level 3" type="Node2D" unique_id=221370902]
+script = ExtResource("1_ch2wq")
+next_scene_path = "res://level_0.tscn"
+
+[node name="DogCharacter" parent="." unique_id=422305244 instance=ExtResource("2_pk8oy")]
+unique_name_in_owner = true
+z_index = 10
+position = Vector2(72, 624)
+
+[node name="Floor" type="StaticBody2D" parent="." unique_id=359311422]
+position = Vector2(383, 667)
+collision_layer = 112
+collision_mask = 112
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor" unique_id=1856905392]
+position = Vector2(478, -3)
+shape = SubResource("RectangleShape2D_pk8oy")
+debug_color = Color(1, 1, 1, 1)
+
+[node name="Platform" type="StaticBody2D" parent="." unique_id=1809337570]
+position = Vector2(568, 494)
+collision_layer = 48
+collision_mask = 48
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform" unique_id=449407469]
+position = Vector2(0.5, 0.5)
+shape = SubResource("RectangleShape2D_jg0dc")
+debug_color = Color(0.8547576, 0.3686898, 3.85046e-07, 0.41960785)
+
+[node name="Box" type="RigidBody2D" parent="." unique_id=717578546]
+position = Vector2(565, 624)
+collision_layer = 96
+collision_mask = 96
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Box" unique_id=1475686232]
+position = Vector2(0.125, 0)
+shape = SubResource("RectangleShape2D_nmjpi")
+debug_color = Color(0.51661754, 0.4205707, 1, 0.41960785)
+
+[node name="Finish" type="Area2D" parent="." unique_id=867154199 groups=["finish"]]
+unique_name_in_owner = true
+position = Vector2(656, 445)
+collision_layer = 16
+collision_mask = 18
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Finish" unique_id=580124904]
+shape = SubResource("RectangleShape2D_xdadj")
+
+[node name="HighBox" type="RigidBody2D" parent="." unique_id=1446737728]
+position = Vector2(207, 570)
+collision_layer = 80
+collision_mask = 80
+mass = 1.5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HighBox" unique_id=1550138489]
+shape = SubResource("RectangleShape2D_16pka")
+debug_color = Color(0, 0.6347695, 0.4288601, 0.41960785)
+
+[node name="Wall" type="StaticBody2D" parent="." unique_id=879548703]
+position = Vector2(18, 507)
+collision_layer = 112
+collision_mask = 112
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall" unique_id=1563212768]
+position = Vector2(-4, -121.1875)
+shape = SubResource("RectangleShape2D_ch2wq")
+debug_color = Color(1, 1, 1, 1)
+
+[node name="Wall2" type="StaticBody2D" parent="." unique_id=894541404]
+position = Vector2(1708, 507)
+collision_layer = 112
+collision_mask = 112
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall2" unique_id=310787577]
+position = Vector2(1, -121)
+shape = SubResource("RectangleShape2D_o5bas")
+debug_color = Color(1, 1, 1, 1)
