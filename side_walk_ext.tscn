@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://cv5dbychl0ph5"]
+
+[ext_resource type="Texture2D" uid="uid://b1al36wkdrjp" path="res://Dropbox/assets/world/environement/sidewalk_extension.png" id="1_04qeq"]
+
+[node name="SideWalk" type="Sprite2D" unique_id=148337896]
+scale = Vector2(0.20153935, 0.050365604)
+texture = ExtResource("1_04qeq")

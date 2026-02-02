@@ -8,84 +8,92 @@
 [ext_resource type="PackedScene" uid="uid://dqrjwsdt0h5ae" path="res://paved_floor.tscn" id="7_j7kpp"]
 [ext_resource type="PackedScene" uid="uid://dxifurxi4w0f2" path="res://paperplane_go.tscn" id="8_5rr72"]
 [ext_resource type="PackedScene" uid="uid://cwfiuicx1vdnr" path="res://bus_shelter_go.tscn" id="8_bjebc"]
+[ext_resource type="PackedScene" uid="uid://cv5dbychl0ph5" path="res://side_walk_ext.tscn" id="9_5rr72"]
+[ext_resource type="PackedScene" uid="uid://jr1y76pvntao" path="res://backgground_day.tscn" id="10_gyffv"]
 
 [node name="Level 1" type="Node2D" unique_id=1611830715]
 script = ExtResource("1_ihfcg")
 next_scene_path = "res://level_2.tscn"
 
 [node name="DogCharacter" parent="." unique_id=422305244 instance=ExtResource("1_3hls8")]
-position = Vector2(486, 540)
+position = Vector2(486, 742)
 
 [node name="MovingPlatform" parent="." unique_id=1011694896 instance=ExtResource("3_rka8t")]
-position = Vector2(525, 331)
+position = Vector2(525, 533)
 
 [node name="Finish" parent="." unique_id=1056008474 instance=ExtResource("6_5hph3")]
 unique_name_in_owner = true
-position = Vector2(964, 135)
+position = Vector2(964, 337)
 
 [node name="Floor2" parent="." unique_id=752056718 instance=ExtResource("7_j7kpp")]
-position = Vector2(0, 563)
+position = Vector2(0, 765)
 
 [node name="Floor3" parent="." unique_id=1500642607 instance=ExtResource("7_j7kpp")]
-position = Vector2(153, 563)
+position = Vector2(153, 765)
 
 [node name="Floor4" parent="." unique_id=608224285 instance=ExtResource("7_j7kpp")]
-position = Vector2(306, 563)
+position = Vector2(306, 765)
 
 [node name="Floor5" parent="." unique_id=134970543 instance=ExtResource("7_j7kpp")]
-position = Vector2(612, 563)
+position = Vector2(612, 765)
 
 [node name="Floor6" parent="." unique_id=1756307121 instance=ExtResource("7_j7kpp")]
-position = Vector2(459, 563)
+position = Vector2(459, 765)
 
 [node name="BusShelterGO" parent="." unique_id=1086050009 instance=ExtResource("8_bjebc")]
-position = Vector2(85, 403)
+position = Vector2(85, 605)
 
 [node name="Wall" parent="." unique_id=1955749608 instance=ExtResource("7_j7kpp")]
-position = Vector2(0, 568)
+position = Vector2(0, 770)
 rotation = -1.5707964
 
 [node name="Wall2" parent="." unique_id=1528498304 instance=ExtResource("7_j7kpp")]
-position = Vector2(0, 415)
+position = Vector2(0, 617)
 rotation = -1.5707964
 
 [node name="Wall3" parent="." unique_id=477901090 instance=ExtResource("7_j7kpp")]
 z_index = 1
-position = Vector2(1071, 415)
+position = Vector2(1071, 617)
 rotation = 1.5707964
 
 [node name="Wall4" parent="." unique_id=334594474 instance=ExtResource("7_j7kpp")]
 z_index = 1
-position = Vector2(1071, 262)
+position = Vector2(1071, 464)
 rotation = 1.5707964
 
 [node name="MailboxPG" parent="." unique_id=2050237249 instance=ExtResource("7_bjebc")]
-position = Vector2(288, 482)
+position = Vector2(288, 684)
 
 [node name="PaperPlaneGO" parent="." unique_id=409963867 instance=ExtResource("8_5rr72")]
-position = Vector2(696, 331)
+position = Vector2(696, 533)
 offset = Vector2(0, -150)
 
 [node name="Wall5" parent="." unique_id=1553751218 instance=ExtResource("7_j7kpp")]
 z_index = 1
-position = Vector2(1071, 109)
+position = Vector2(1071, 311)
 rotation = 1.5707964
 
 [node name="Wall6" parent="." unique_id=1844679799 instance=ExtResource("7_j7kpp")]
 z_index = 1
-position = Vector2(1071, -44)
+position = Vector2(1071, 158)
 rotation = 1.5707964
 
 [node name="Floor7" parent="." unique_id=931941011 instance=ExtResource("7_j7kpp")]
-position = Vector2(918, 563)
+position = Vector2(918, 765)
 
 [node name="Floor8" parent="." unique_id=1968013833 instance=ExtResource("7_j7kpp")]
-position = Vector2(765, 563)
+position = Vector2(765, 765)
 
 [node name="Floor11" parent="." unique_id=2097302190 instance=ExtResource("7_j7kpp")]
 z_index = -1
-position = Vector2(894, 184)
+position = Vector2(894, 386)
 
 [node name="Wall7" parent="." unique_id=158298338 instance=ExtResource("7_j7kpp")]
-position = Vector2(0, 263)
+position = Vector2(0, 465)
 rotation = -1.5707964
+
+[node name="SideWalk" parent="." unique_id=148337896 instance=ExtResource("9_5rr72")]
+position = Vector2(536.5, 718)
+scale = Vector2(0.2899088, 0.050365604)
+
+[node name="Environement" parent="." unique_id=271244707 instance=ExtResource("10_gyffv")]

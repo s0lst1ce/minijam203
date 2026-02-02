@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://jr1y76pvntao"]
+
+[ext_resource type="Texture2D" uid="uid://bb1yr8idmvo54" path="res://Dropbox/assets/world/environement/sky_backdrop.png" id="1_3ty5d"]
+[ext_resource type="Texture2D" uid="uid://kxpl0usf7a62" path="res://Dropbox/assets/world/environement/clouds.png" id="2_oy8mk"]
+[ext_resource type="Texture2D" uid="uid://b1al36wkdrjp" path="res://Dropbox/assets/world/environement/sidewalk_extension.png" id="3_qspiw"]
+
+[node name="Environement" type="Node2D" unique_id=271244707]
+z_index = -5
+
+[node name="Sky" type="Parallax2D" parent="." unique_id=1655038372]
+scroll_scale = Vector2(0.1, 0.01)
+scroll_offset = Vector2(0, 2)
+
+[node name="Sprite2D" type="Sprite2D" parent="Sky" unique_id=803960158]
+position = Vector2(0, -1.1920929e-07)
+scale = Vector2(0.54618007, 0.4346774)
+texture = ExtResource("1_3ty5d")
+centered = false
+offset = Vector2(-7000, -2500)
+region_enabled = true
+region_rect = Rect2(-6492, -2887, 17205, 8079)
+
+[node name="Clouds" type="Parallax2D" parent="." unique_id=589997126]
+scroll_scale = Vector2(0.1, 0.001)
+scroll_offset = Vector2(6, 0)
+repeat_size = Vector2(313.896, 0)
+repeat_times = 16
+
+[node name="Sprite2D" type="Sprite2D" parent="Clouds" unique_id=222563603]
+position = Vector2(167, 0)
+scale = Vector2(0.08749999, 0.08750001)
+texture = ExtResource("2_oy8mk")
+centered = false
+region_enabled = true
+region_rect = Rect2(-7172, -1927, 17729, 3912)
+
+[node name="SideWalk" type="Parallax2D" parent="." unique_id=645844847]
+visible = false
+
+[node name="Sprite2D" type="Sprite2D" parent="SideWalk" unique_id=1859792745]
+position = Vector2(959.5, 654)
+scale = Vector2(0.545325, 0.42561775)
+texture = ExtResource("3_qspiw")

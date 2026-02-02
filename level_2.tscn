@@ -6,6 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://ot8bqyqqu0i6" path="res://trashcan_go.tscn" id="4_1y8me"]
 [ext_resource type="PackedScene" uid="uid://dqrjwsdt0h5ae" path="res://paved_floor.tscn" id="4_n7ypv"]
 [ext_resource type="PackedScene" uid="uid://y06qifwq66rp" path="res://bus_shelter_pg.tscn" id="5_n7ypv"]
+[ext_resource type="PackedScene" uid="uid://jr1y76pvntao" path="res://backgground_day.tscn" id="7_7j8ne"]
+[ext_resource type="PackedScene" uid="uid://cv5dbychl0ph5" path="res://side_walk_ext.tscn" id="8_7dov7"]
 
 [node name="Level 2" type="Node2D" unique_id=221370902]
 script = ExtResource("1_xdadj")
@@ -67,3 +69,8 @@ position = Vector2(499, 478)
 z_index = 1
 position = Vector2(765, 109)
 rotation = 1.5707964
+
+[node name="Environement" parent="." unique_id=271244707 instance=ExtResource("7_7j8ne")]
+
+[node name="SideWalk" parent="." unique_id=148337896 instance=ExtResource("8_7dov7")]
+position = Vector2(382.5, 512.9375)
