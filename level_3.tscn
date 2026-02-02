@@ -15,12 +15,12 @@
 
 [node name="Level 3" type="Node2D" unique_id=221370902]
 script = ExtResource("1_16pka")
-next_scene_path = "res://level_0.tscn"
+next_scene_path = "res://game_finishh.tscn"
 
 [node name="DogCharacter" parent="." unique_id=422305244 instance=ExtResource("2_j8bo8")]
 unique_name_in_owner = true
 z_index = 10
-position = Vector2(958, 732)
+position = Vector2(988, 735)
 
 [node name="Floor2" parent="." unique_id=752056718 instance=ExtResource("3_16pka")]
 position = Vector2(0, 766)
@@ -108,7 +108,8 @@ position = Vector2(29, 404)
 z_index = -1
 position = Vector2(182, 404)
 
-[node name="Finish2" parent="." unique_id=1056008474 instance=ExtResource("8_7ds5r")]
+[node name="Finish" parent="." unique_id=1056008474 instance=ExtResource("8_7ds5r")]
+unique_name_in_owner = true
 position = Vector2(66, 356)
 
 [node name="Wall8" parent="." unique_id=999789939 instance=ExtResource("3_16pka")]
