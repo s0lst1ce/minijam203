@@ -60,7 +60,7 @@ func _physics_process(delta: float) -> void:
 			if shares_mode(body, current_mode):
 				# -c because we move the object in the same way as the player. Not the normal which faces the player
 				if body.linear_velocity.length() < MAX_HSPEED:
-					body.apply_central_force(-c.get_normal()*800)
+					body.apply_central_force(-c.get_normal()*1000)
 					pushed.append(body)
 
 	# removing force if we're not pushing anymore
