@@ -60,7 +60,8 @@ rotation = -1.5707964
 position = Vector2(468, 402)
 
 [node name="TrashcanGO" parent="." unique_id=318475002 instance=ExtResource("4_1y8me")]
-position = Vector2(499, 487)
+z_index = 5
+position = Vector2(499, 478)
 
 [node name="Wall5" parent="." unique_id=1467163112 instance=ExtResource("4_n7ypv")]
 z_index = 1

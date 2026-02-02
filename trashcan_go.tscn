@@ -6,6 +6,7 @@
 size = Vector2(86, 78)
 
 [node name="TrashcanGO" type="RigidBody2D" unique_id=318475002]
+z_index = 2
 collision_layer = 96
 collision_mask = 96
 

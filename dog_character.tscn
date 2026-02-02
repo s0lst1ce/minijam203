@@ -69,6 +69,7 @@ animations = [{
 }]
 
 [node name="DogCharacter" type="CharacterBody2D" unique_id=422305244]
+z_index = 50
 collision_layer = 16
 collision_mask = 18
 script = ExtResource("1_5g6is")
