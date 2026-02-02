@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://t2r55666tr6"]
+
+[ext_resource type="Texture2D" uid="uid://sn1t1dma5pq7" path="res://Dropbox/assets/world/props/mailbox_pg.png" id="1_gljh7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e0uh8"]
+size = Vector2(49, 80)
+
+[node name="MailboxPG" type="StaticBody2D" unique_id=1086050009]
+collision_layer = 48
+collision_mask = 48
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1444183342]
+position = Vector2(24.5, 40)
+shape = SubResource("RectangleShape2D_e0uh8")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1428869645]
+z_index = 5
+scale = Vector2(0.057511736, 0.05751174)
+texture = ExtResource("1_gljh7")
+centered = false
+region_enabled = true
+region_rect = Rect2(1038, 309, 852, 1470)

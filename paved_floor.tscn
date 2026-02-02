@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dqrjwsdt0h5ae"]
 
-[ext_resource type="Texture2D" uid="uid://cl8keossmimvs" path="res://Dropbox/assets/world/boundaries/paved_blue.png" id="1_6aoij"]
+[ext_resource type="Texture2D" uid="uid://bg6cl2gb6w3kc" path="res://Dropbox/assets/world/boundaries/brickwall_colored_thick.png" id="1_6aoij"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nu7sl"]
 size = Vector2(153, 29)
