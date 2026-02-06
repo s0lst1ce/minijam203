@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://cv5dbychl0ph5" path="res://side_walk_ext.tscn" id="12_833wy"]
 
 [node name="Level 3" type="Node2D" unique_id=221370902]
+position = Vector2(2, 0)
 script = ExtResource("1_16pka")
 next_scene_path = "res://game_finishh.tscn"
 
@@ -97,7 +98,7 @@ position = Vector2(1362, 442)
 position = Vector2(1184, 680)
 
 [node name="PaperPlanePG" parent="." unique_id=1011694896 instance=ExtResource("7_fmu3g")]
-position = Vector2(774, 497)
+position = Vector2(794, 511)
 offset = Vector2(-200, -50)
 
 [node name="Floor13" parent="." unique_id=1809485558 instance=ExtResource("3_16pka")]
